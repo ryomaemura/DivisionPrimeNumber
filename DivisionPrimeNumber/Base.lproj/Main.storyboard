@@ -67,6 +67,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="7"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-1N-ckn">
+                                <rect key="frame" x="146" y="764" width="122" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="リセット"/>
+                                <connections>
+                                    <action selector="resetButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tbg-yA-MkW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -87,10 +95,12 @@
                             <constraint firstItem="CiG-4N-Cos" firstAttribute="centerY" secondItem="HwD-mI-o3N" secondAttribute="centerY" id="b5R-ry-kE7"/>
                             <constraint firstItem="QVs-4I-Hr4" firstAttribute="top" secondItem="rq7-qE-PFw" secondAttribute="bottom" constant="100" id="eqD-E9-WYs"/>
                             <constraint firstItem="1eG-gL-XrB" firstAttribute="centerY" secondItem="mBu-oh-0hu" secondAttribute="centerY" id="hc0-rl-gkm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Rcf-1N-ckn" secondAttribute="bottom" constant="50" id="hhi-8C-SnS"/>
                             <constraint firstItem="QVs-4I-Hr4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r2k-cy-np8"/>
                             <constraint firstItem="eMB-J2-1dT" firstAttribute="leading" secondItem="QVs-4I-Hr4" secondAttribute="trailing" constant="70" id="x9C-9b-p6Y"/>
                             <constraint firstItem="eMB-J2-1dT" firstAttribute="centerY" secondItem="XsV-Xh-dXe" secondAttribute="centerY" id="y1o-WW-ci5"/>
                             <constraint firstItem="CiG-4N-Cos" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yxu-9z-8vX"/>
+                            <constraint firstItem="Rcf-1N-ckn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zBr-7W-s4G"/>
                         </constraints>
                     </view>
                     <connections>
