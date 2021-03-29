@@ -10,19 +10,12 @@ import UIKit
 class ViewController: UIViewController {
   @IBOutlet weak var primeNumberLabel: UILabel!
   
-  @IBOutlet weak var number2Label: UIButton!
-  @IBOutlet weak var number3Label: UIButton!
-  @IBOutlet weak var number5Label: UIButton!
-  @IBOutlet weak var number7Label: UIButton!
-  @IBOutlet weak var number11Label: UIButton!
-  @IBOutlet weak var number13Label: UIButton!
-  @IBOutlet weak var number17Label: UIButton!
-  @IBOutlet weak var number19Label: UIButton!
-  @IBOutlet weak var number23Label: UIButton!
-  
+  // 使用するボタンの数字
   var numberButtons = [2, 3, 5, 7, 11, 13, 17, 19, 23]
   
+  // 表示される数字
   var displayNumber = 1
+  // 乱数
   var randomNumber = 0
   
   override func viewDidLoad() {
@@ -31,44 +24,96 @@ class ViewController: UIViewController {
     reset()
   }
   
+  // 表示をリセット
   func reset() {
     displayNumber = 1
-    
-    for number in numberButtons {
-      randomNumber = getRandomNumber()
-      if randomNumber != 0 {
-        displayNumber *= number * randomNumber
-        print(randomNumber)
+
+    while displayNumber == 1 {
+      for number in numberButtons {
+        randomNumber = getRandomNumber()
+        if randomNumber != 0 {
+          displayNumber *= number * randomNumber
+          print(randomNumber)
+        }
       }
     }
     
     primeNumberLabel.text = String(displayNumber)
   }
   
+  // 乱数を取得
   func getRandomNumber() -> Int {
-    // 40 20 16 12 8 4
+    // 60% : 0
+    // 12% : 1
+    // 10% : 2
+    // 08% : 3
+    // 06% : 4
+    // 04% : 5
     let randomNumber = Int.random(in: 1 ... 100)
     
-    if randomNumber >= 1 && randomNumber <= 40 {
+    if randomNumber >= 1 && randomNumber <= 60 {
       return 0
-    } else if randomNumber >= 41 && randomNumber <= 60 {
+    } else if randomNumber >= 61 && randomNumber <= 72 {
       return 1
-    } else if randomNumber >= 61 && randomNumber <= 76 {
+    } else if randomNumber >= 73 && randomNumber <= 82 {
       return 2
-    } else if randomNumber >= 77 && randomNumber <= 88 {
+    } else if randomNumber >= 83 && randomNumber <= 90 {
       return 3
-    } else if randomNumber >= 89 && randomNumber <= 96 {
+    } else if randomNumber >= 91 && randomNumber <= 96 {
       return 4
     } else {
       return 5
     }
   }
   
+  // リセットボタン
   @IBAction func resetButtonAction(_ sender: Any) {
     reset()
   }
   
-
-
+  // 数字ボタンアクション
+  @IBAction func number2ButtonAction(_ sender: Any) {
+    divisionNumber(number: 2)
+  }
+  
+  @IBAction func number3ButtonAction(_ sender: Any) {
+    divisionNumber(number: 3)
+  }
+  
+  @IBAction func number5ButtonAction(_ sender: Any) {
+    divisionNumber(number: 5)
+  }
+  
+  @IBAction func number7ButtonAction(_ sender: Any) {
+    divisionNumber(number: 7)
+  }
+  
+  @IBAction func number11ButtonAction(_ sender: Any) {
+    divisionNumber(number: 11)
+  }
+  
+  @IBAction func number13ButtonAction(_ sender: Any) {
+    divisionNumber(number: 13)
+  }
+  
+  @IBAction func number17ButtonAction(_ sender: Any) {
+    divisionNumber(number: 17)
+  }
+  
+  @IBAction func number19ButtonAction(_ sender: Any) {
+    divisionNumber(number: 19)
+  }
+  
+  @IBAction func number23ButtonAction(_ sender: Any) {
+    divisionNumber(number: 23)
+  }
+  
+  // 割り算を実行
+  func divisionNumber(number: Int) {
+    if displayNumber % number == 0 {
+      displayNumber /= number
+      primeNumberLabel.text = String(displayNumber)
+    }
+  }
 }
 
