@@ -147,6 +147,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PON-Qw-hg2">
+                                <rect key="frame" x="10" y="54" width="51" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backScreenButtonAction:" destination="PdU-QB-srJ" eventType="touchUpInside" id="BQ9-Gj-24G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="raZ-Oc-dOG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,6 +170,7 @@
                             <constraint firstItem="rq7-qE-PFw" firstAttribute="top" secondItem="raZ-Oc-dOG" secondAttribute="top" constant="50" id="FVe-F5-AZr"/>
                             <constraint firstItem="eMB-J2-1dT" firstAttribute="centerY" secondItem="XsV-Xh-dXe" secondAttribute="centerY" id="FgR-FZ-WZu"/>
                             <constraint firstItem="QVs-4I-Hr4" firstAttribute="centerY" secondItem="XsV-Xh-dXe" secondAttribute="centerY" id="Ic8-QZ-WVx"/>
+                            <constraint firstItem="PON-Qw-hg2" firstAttribute="leading" secondItem="raZ-Oc-dOG" secondAttribute="leading" constant="10" id="Id9-pK-QeN"/>
                             <constraint firstItem="oxG-jg-LW2" firstAttribute="centerX" secondItem="f1M-ZN-yzf" secondAttribute="centerX" constant="-3" id="L1b-yN-tPE"/>
                             <constraint firstItem="JTK-5B-9yC" firstAttribute="centerY" secondItem="HwD-mI-o3N" secondAttribute="centerY" id="OVt-PG-amN"/>
                             <constraint firstItem="1eG-gL-XrB" firstAttribute="centerY" secondItem="mBu-oh-0hu" secondAttribute="centerY" id="P7L-hV-hQY"/>
@@ -171,6 +180,7 @@
                             <constraint firstItem="1eG-gL-XrB" firstAttribute="top" secondItem="QVs-4I-Hr4" secondAttribute="bottom" constant="50" id="Uvv-87-ian"/>
                             <constraint firstAttribute="bottom" secondItem="Rcf-1N-ckn" secondAttribute="bottom" constant="50" id="aQD-SE-1eE"/>
                             <constraint firstItem="CiG-4N-Cos" firstAttribute="leading" secondItem="HwD-mI-o3N" secondAttribute="trailing" constant="70" id="cOv-qt-9BC"/>
+                            <constraint firstItem="PON-Qw-hg2" firstAttribute="top" secondItem="raZ-Oc-dOG" secondAttribute="top" constant="10" id="czc-VB-fDe"/>
                             <constraint firstItem="QVs-4I-Hr4" firstAttribute="top" secondItem="rq7-qE-PFw" secondAttribute="bottom" constant="50" id="dtB-WD-qtX"/>
                             <constraint firstItem="1eG-gL-XrB" firstAttribute="centerX" secondItem="f1M-ZN-yzf" secondAttribute="centerX" constant="-3.5" id="iz7-7t-qSO"/>
                             <constraint firstItem="1eG-gL-XrB" firstAttribute="leading" secondItem="mBu-oh-0hu" secondAttribute="trailing" constant="70" id="qTg-Iy-wAa"/>

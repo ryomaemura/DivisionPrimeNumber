@@ -131,5 +131,10 @@ class SomeQuestionsCourseViewController: UIViewController {
       self.commentLabel.text = ""
     }
   }
-
+  
+  // 戻るボタン
+  @IBAction func backScreenButtonAction(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
 }
