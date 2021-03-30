@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
   @IBOutlet weak var primeNumberLabel: UILabel!
+  @IBOutlet weak var commentLabel: UILabel!
   
   // 使用するボタンの数字
   var numberButtons = [2, 3, 5, 7, 11, 13, 17, 19, 23]
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    commentLabel.text = ""
     reset()
   }
   
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
       }
     }
     
+    addComment(text: "リセットしました")
     primeNumberLabel.text = String(displayNumber)
   }
   
@@ -113,6 +116,18 @@ class ViewController: UIViewController {
     if displayNumber % number == 0 {
       displayNumber /= number
       primeNumberLabel.text = String(displayNumber)
+    } else {
+      addComment(text: "その数では割れません")
+    }
+  }
+  
+  // コメントを表示する
+  func addComment(text: String) {
+    commentLabel.text = text
+    
+    // 2秒後に消去する
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+      self.commentLabel.text = ""
     }
   }
 }
