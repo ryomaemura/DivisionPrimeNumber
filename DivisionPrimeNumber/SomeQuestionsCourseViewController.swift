@@ -11,6 +11,14 @@ class SomeQuestionsCourseViewController: UIViewController {
 
   @IBOutlet weak var primeNumberLabel: UILabel!
   @IBOutlet weak var commentLabel: UILabel!
+  @IBOutlet weak var scoreLabel: UILabel!
+  @IBOutlet weak var resetButton: UIButton!
+  @IBOutlet weak var timerLabel: UILabel!
+  
+  // タイマー
+  var timer: Timer!
+  // タイム
+  var time = 0.00
   
   // 使用するボタンの数字
   var numberButtons = [2, 3, 5, 7, 11, 13, 17, 19, 23]
@@ -20,11 +28,19 @@ class SomeQuestionsCourseViewController: UIViewController {
   // 乱数
   var randomNumber = 0
   
+  // ゲームクリアするスコア
+  var goalScoreNumber = 0
+  // 現在のスコア
+  var scoreNumber = 0
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    goalScoreNumber = 5
+    scoreLabel.text = String(scoreNumber) + "/" + String(goalScoreNumber)
     commentLabel.text = ""
     reset()
+    startTimer()
   }
   
   // 表示をリセット
@@ -36,7 +52,6 @@ class SomeQuestionsCourseViewController: UIViewController {
         randomNumber = getRandomNumber()
         if randomNumber != 0 {
           displayNumber *= number * randomNumber
-          print(randomNumber)
         }
       }
     }
@@ -117,8 +132,26 @@ class SomeQuestionsCourseViewController: UIViewController {
     if displayNumber % number == 0 {
       displayNumber /= number
       primeNumberLabel.text = String(displayNumber)
+      if displayNumber == 1 {
+        self.scoreDisplay()
+      }
     } else {
       addComment(text: "その数では割れません")
+    }
+  }
+  
+  func scoreDisplay() {
+    scoreNumber += 1
+    resetButton.isEnabled = false
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [self] in
+      if scoreNumber == goalScoreNumber {
+        scoreLabel.text = "GAME CLEAR"
+        timer.invalidate()
+      } else {
+        resetButton.isEnabled = true
+        reset()
+        scoreLabel.text = String(scoreNumber) + "/" + String(goalScoreNumber)
+      }
     }
   }
   
@@ -135,6 +168,27 @@ class SomeQuestionsCourseViewController: UIViewController {
   // 戻るボタン
   @IBAction func backScreenButtonAction(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
+  }
+  
+  // タイマースタート
+  func startTimer() {
+    timer = Timer.scheduledTimer(
+      timeInterval: 0.01,
+      target: self,
+      selector: #selector(self.timerCounter),
+      userInfo: nil,
+      repeats: true
+    )
+  }
+
+  @objc func timerCounter() {
+//    let now = Date()
+//
+//    let fomatter = DateFormatter()
+//    fomatter.dateFormat = "ss.S"
+//    timerLabel.text = fomatter.string(from: now)
+    time += 0.01
+    timerLabel.text = String(floor(time * 10) / 10)
   }
   
 }
