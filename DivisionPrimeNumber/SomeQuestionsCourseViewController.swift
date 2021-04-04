@@ -91,40 +91,9 @@ class SomeQuestionsCourseViewController: UIViewController {
   }
   
   // 数字ボタンアクション
-  @IBAction func number2ButtonAction(_ sender: Any) {
-    divisionNumber(number: 2)
-  }
-  
-  @IBAction func number3ButtonAction(_ sender: Any) {
-    divisionNumber(number: 3)
-  }
-  
-  @IBAction func number5ButtonAction(_ sender: Any) {
-    divisionNumber(number: 5)
-  }
-  
-  @IBAction func number7ButtonAction(_ sender: Any) {
-    divisionNumber(number: 7)
-  }
-  
-  @IBAction func number11ButtonAction(_ sender: Any) {
-    divisionNumber(number: 11)
-  }
-  
-  @IBAction func number13ButtonAction(_ sender: Any) {
-    divisionNumber(number: 13)
-  }
-  
-  @IBAction func number17ButtonAction(_ sender: Any) {
-    divisionNumber(number: 17)
-  }
-  
-  @IBAction func number19ButtonAction(_ sender: Any) {
-    divisionNumber(number: 19)
-  }
-  
-  @IBAction func number23ButtonAction(_ sender: Any) {
-    divisionNumber(number: 23)
+  @IBAction func numberButtonAction(_ sender: UIButton) {
+    print(sender.tag)
+    divisionNumber(number: sender.tag)
   }
   
   // 割り算を実行
@@ -140,6 +109,7 @@ class SomeQuestionsCourseViewController: UIViewController {
     }
   }
   
+  // スコア更新
   func scoreDisplay() {
     scoreNumber += 1
     resetButton.isEnabled = false
@@ -181,12 +151,8 @@ class SomeQuestionsCourseViewController: UIViewController {
     )
   }
 
+  // タイマー更新
   @objc func timerCounter() {
-//    let now = Date()
-//
-//    let fomatter = DateFormatter()
-//    fomatter.dateFormat = "ss.S"
-//    timerLabel.text = fomatter.string(from: now)
     time += 0.01
     timerLabel.text = String(floor(time * 10) / 10)
   }
